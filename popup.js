@@ -23,18 +23,22 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
         const data = await fetchResponse.json();
         console.log('Server response:', data);
 
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          resultDiv.innerHTML = `
-            <img src="${e.target.result}" alt="Screenshot Image" style="max-width: 100%; max-height: 30vh; margin-bottom: 20px;">
-            <audio controls id="audio-player"></audio>
-            <p>${data.content}</p>`;
-          
-          const audioPlayer = document.getElementById('audio-player');
-          audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com/audio';
-          audioPlayer.load();
-        };
-        reader.readAsDataURL(blob);
+        if (fetchResponse.ok) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            resultDiv.innerHTML = `
+              <img src="${e.target.result}" alt="Screenshot Image" style="max-width: 100%; max-height: 30vh; margin-bottom: 20px;">
+              <audio controls id="audio-player"></audio>
+              <p>${data.content}</p>`;
+            
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com/audio';
+            audioPlayer.load();
+          };
+          reader.readAsDataURL(blob);
+        } else {
+          resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+        }
       } catch (error) {
         console.error('Error:', error);
         resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;

@@ -84,7 +84,11 @@ app.post('/analyze-image', upload.single('image'), async (req, res) => {
 
 app.get('/audio', (req, res) => {
   const filePath = path.resolve(__dirname, 'public', 'output.mp3');
-  res.sendFile(filePath);
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.status(404).send('Audio file not found');
+  }
 });
 
 app.listen(PORT, () => {
