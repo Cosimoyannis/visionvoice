@@ -11,7 +11,7 @@ const app = express();
 const port = 3000;
 
 const openai = new OpenAI({
-  apiKey: sk-proj-Bwg0MDVFYIUdt0OHDUXIT3BlbkFJH1VhKR3PKZDIRPqJdrqM
+  apiKey: "sk-proj-Bwg0MDVFYIUdt0OHDUXIT3BlbkFJH1VhKR3PKZDIRPqJdrqM"
 });
 
 const upload = multer({ dest: 'uploads/' });
