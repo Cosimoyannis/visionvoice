@@ -59,7 +59,7 @@ app.post('/analyze-image', upload.single('image'), async (req, res) => {
         {
           role: "user",
           content: [
-            { type: "text", text: "Describe to me in a short continuous text what can be seen on this screenshot" },
+            { type: "text", text: "Beschreibe mir in einem kurzen Fließtext, was auf diesem Bildschirmfoto zu sehen ist. Versuche möglichst wissensvermittelnd und erklärend zu agieren." },
             {
               type: "image_url",
               image_url: {
