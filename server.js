@@ -8,7 +8,7 @@ const { OpenAI } = require('openai');
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -87,6 +87,6 @@ app.get('/audio', (req, res) => {
   res.sendFile(filePath);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
