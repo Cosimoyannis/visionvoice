@@ -1,4 +1,3 @@
-
 document.getElementById('screenshot-button').addEventListener('click', () => {
   console.log('Take Screenshot button clicked');
   chrome.runtime.sendMessage({ action: "captureScreenshot" }, async (response) => {
@@ -43,6 +42,9 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
         // Hide loading spinner
         loadingDiv.classList.remove('visible');
       }
+    } else {
+      console.error('No screenshot URL received:', response.error);
+      document.getElementById('result').innerHTML = `<p>Error: ${response.error}</p>`;
     }
   });
 });
