@@ -1,5 +1,8 @@
 document.getElementById('screenshot-button').addEventListener('click', () => {
   console.log('Take Screenshot button clicked');
+
+document.getElementById('screenshot-button').style.display = 'none';
+
   chrome.runtime.sendMessage({ action: "captureScreenshot" }, async (response) => {
     if (response.screenshotUrl) {
       console.log('Screenshot captured:', response.screenshotUrl);
@@ -26,10 +29,15 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
         if (fetchResponse.ok) {
           const reader = new FileReader();
           reader.onload = function(e) {
-            resultDiv.innerHTML = `
+          /*   resultDiv.innerHTML = `
               <img src="${e.target.result}" alt="Screenshot Image" style="max-width: 100%; max-height: 30vh; margin-bottom: 20px;">
               <audio controls id="audio-player"></audio>
-              <p>${data.content}</p>`;
+              <p>${data.content}</p>`; */
+
+              resultDiv.innerHTML = `
+              <div class="center"><audio controls id="audio-player"></audio></div>
+            `;
+
             
             const audioPlayer = document.getElementById('audio-player');
             audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com/audio';
