@@ -2,6 +2,9 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
   console.log('Take Screenshot button clicked');
 
 document.getElementById('screenshot-button').style.display = 'none';
+document.querySelector('h3').style.display = 'none';
+document.querySelector('img').style.display = 'none';
+
 
   chrome.runtime.sendMessage({ action: "captureScreenshot" }, async (response) => {
     if (response.screenshotUrl) {
@@ -42,6 +45,7 @@ document.getElementById('screenshot-button').style.display = 'none';
             const audioPlayer = document.getElementById('audio-player');
             audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com/audio';
             audioPlayer.load();
+            
           };
           reader.readAsDataURL(blob);
         } else {
