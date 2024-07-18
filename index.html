@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionVoice Screenreader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 4px;
+      height: 200px; /* Fixed height */
+      overflow-y: auto; /* Enable vertical scroll */
+    }
+    .loading {
+      display: none;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .loading.visible {
+      display: flex;
+    }
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid #007bff;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    img {
+      max-width: 100%;
+      max-height: 30vh;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="Logo.png" style="display: block; margin: 0 auto; width: 30%;">
+    <h1 style="margin-top: 2%">VisionVoice</h1>
+    <h5 style="color: grey; margin-top: -2%; margin-bottom: 5%;">Cosimo's AI Screenreader</h5>
+    <button id="screenshot-button">Take Screenshot</button>
+    <div id="result"></div>
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
