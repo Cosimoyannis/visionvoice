@@ -24,8 +24,7 @@ document.getElementById('screenshot-button').addEventListener('click', async () 
         const reader = new FileReader();
         reader.onload = function(e) {
           resultDiv.innerHTML = `
-            <img src="${e.target.result}" alt="Screenshot Image" style="max-width: 100%; max-height: 30vh; margin-bottom: 20px;">
-            <p>${data.content}</p>
+            
             <audio controls id="audio-player"></audio>`;
           
           const audioPlayer = document.getElementById('audio-player');
