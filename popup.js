@@ -15,7 +15,7 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
       resultDiv.innerHTML = '';
 
       try {
-        const fetchResponse = await fetch('http://localhost:3000/analyze-image', {
+        const fetchResponse = await fetch('https://visionvoice-3fe2867078e2.herokuapp.com/analyze-image', {
           method: 'POST',
           body: formData
         });
@@ -31,7 +31,7 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
             <p>${data.content}</p>`;
           
           const audioPlayer = document.getElementById('audio-player');
-          audioPlayer.src = 'http://localhost:3000/audio';
+          audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com//audio';
           audioPlayer.load();
         };
         reader.readAsDataURL(blob);
