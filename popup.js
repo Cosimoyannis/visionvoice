@@ -32,7 +32,7 @@ document.getElementById('screenshot-button').addEventListener('click', () => {
             <p>${data.content}</p>`;
           
           const audioPlayer = document.getElementById('audio-player');
-          audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com//audio';
+          audioPlayer.src = 'https://visionvoice-3fe2867078e2.herokuapp.com/audio';
           audioPlayer.load();
         };
         reader.readAsDataURL(blob);
